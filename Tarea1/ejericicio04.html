@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        .error-message {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <form onsubmit="return validarEnvio()">
+        <div class="keyboard">
+            <div class="row">
+                <div class="col">
+                    <button class="btn btn-1"></button>
+                    <button class="btn btn-2"></button>
+                    <button class="btn btn-3"></button>
+                </div>
+                <div></div>
+                <div class="col">
+                    <button class="btn btn-4"></button>
+                    <button class="btn btn-5"></button>
+                    <button class="btn btn-6"></button>
+                </div>
+                <div></div>
+                <div class="col">
+                    <button class="btn btn-7"></button>
+                    <button class="btn btn-8"></button>
+                    <button class="btn btn-9"></button>
+                </div>
+                <div></div>
+                <div class="col">
+                    <button class="btn btn-0"></button>
+                    <button type="button" id="limpiar">Limpiar</button>
+                </div>
+                <input type="password" id="password" name="password" required>
+            </div>
+        </div>
+
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Seleccionar banco de tarjeta</option>
+            <option value="1">VISA</option>
+            <option value="2">MASTERCARD</option>
+            <option value="3">BCP</option>
+        </select>
+        <div class="input-group">
+            <input type="text" id="numeroTarjeta1" maxlength="4" pattern="\d{4}" required>
+            <input type="text" id="numeroTarjeta2" maxlength="4" pattern="\d{4}" required>
+            <input type="text" id="numeroTarjeta3" maxlength="4" pattern="\d{4}" required>
+            <input type="text" id="numeroTarjeta4" maxlength="4" pattern="\d{4}" required>
+        </div>
+        <div>
+            <label for="documento">Seleccionar tipo de documento:</label>
+            <select id="documento">
+                <option selected>Seleccionar el tipo de documento</option>  
+                <option value="DNI">DNI</option>
+                <option value="RUC">RUC</option>
+            </select>
+            <br>
+            <label for="numeroDocumento">Número de documento:</label>
+            <input type="text" id="numeroDocumento" pattern="\d*" required>
+            <span id="errorMensajeDocumento" class="error-message"></span>
+        </div> 
+
+        <img id="imagen" src="images/captcha1.png" alt="Imagen">
+        <br><br>
+
+        <div>
+            <label for="inputTexto">Ingresa la palabra:</label>
+            <input type="text" id="inputTexto" required>
+            <span id="errorMensajeTexto" class="error-message"></span>
+            <span id="errorMensaje" class="error-message"></span>
+        </div>
+        <br><br>
+        <button type="submit">Enviar</button>
+
+        <span id="errorMensajePassword" class="error-message"></span>
+    </form>
+
+    <script src="script04.js"></script>
+</body>
+</html>

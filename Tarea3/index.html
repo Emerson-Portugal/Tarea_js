@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Ahorcado</title>
+<style>
+    canvas {
+        border: 1px solid black;
+    }
+</style>
+</head>
+<body>
+<h1>El Ahorcado</h1>
+<canvas id="hangmanCanvas" width="400" height="400"></canvas>
+<div>
+    <button onclick="dibujarParte()">Dibujar Parte</button>
+</div>
+<script>
+    let intentosRestantes = 6;
+    let canvas = document.getElementById('hangmanCanvas');
+    let ctx = canvas.getContext('2d');
+
+    function dibujarParte() {
+        switch (intentosRestantes) {
+            case 6:
+                // Base
+                ctx.beginPath();
+                ctx.moveTo(20, 380);
+                ctx.lineTo(180, 380);
+                ctx.stroke();
+                break;
+            case 5:
+                // Poste
+                ctx.beginPath();
+                ctx.moveTo(100, 380);
+                ctx.lineTo(100, 50);
+                ctx.stroke();
+                break;
+            case 4:
+                // Travesaño
+                ctx.beginPath();
+                ctx.moveTo(100, 50);
+                ctx.lineTo(250, 50);
+                ctx.stroke();
+                break;
+            case 3:
+                // Cuerda
+                ctx.beginPath();
+                ctx.moveTo(250, 50);
+                ctx.lineTo(250, 100);
+                ctx.stroke();
+                break;
+            case 2:
+                // Cabeza
+                ctx.beginPath();
+                ctx.arc(250, 130, 30, 0, Math.PI * 2);
+                ctx.stroke();
+                break;
+            case 1:
+                // Cuerpo
+                ctx.beginPath();
+                ctx.moveTo(250, 160);
+                ctx.lineTo(250, 270);
+                ctx.stroke();
+                break;
+            case 0:
+                // Brazos
+                ctx.beginPath();
+                ctx.moveTo(250, 180);
+                ctx.lineTo(200, 220);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(250, 180);
+                ctx.lineTo(300, 220);
+                ctx.stroke();
+                // Piernas
+                ctx.beginPath();
+                ctx.moveTo(250, 270);
+                ctx.lineTo(200, 320);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(250, 270);
+                ctx.lineTo(300, 320);
+                ctx.stroke();
+                break;
+        }
+        intentosRestantes--;
+    }
+</script>
+</body>
+</html>
